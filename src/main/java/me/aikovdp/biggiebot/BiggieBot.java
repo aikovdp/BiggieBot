@@ -46,7 +46,7 @@ public class BiggieBot extends ListenerAdapter {
             case "checker" -> event.getOption("channel").getAsGuildChannel()
                     .createInvite()
                     .setTargetApplication("413643239187546113")
-                    .queque(invite -> event.reply(invite.getUrl()).queque());
+                    .queue(invite -> event.reply(invite.getUrl()).queue());
         }
     }
 }
