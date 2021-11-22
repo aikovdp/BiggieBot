@@ -24,6 +24,8 @@ public class BiggieBot extends ListenerAdapter {
                 new CommandData("poker", "Start a new poker session")
                         .addOption(OptionType.CHANNEL, "channel", "The channel to start the session", true),
                 new CommandData("chess", "Start a new chess session")
+                        .addOption(OptionType.CHANNEL, "channel", "The channel to start the session", true),
+                new CommandData("checker", "Start a new checkers session")
                         .addOption(OptionType.CHANNEL, "channel", "The channel to start the session", true)
         ).queue();
     }
