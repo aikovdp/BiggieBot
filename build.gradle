@@ -7,6 +7,10 @@ plugins {
 application.mainClassName 'me.aikovdp.biggiebot.BiggieBot'
 version '1.0-SNAPSHOT'
 
+compileJava {
+    sourceCompatibility = '16'
+    targetCompatibility = '16'
+}
 
 repositories {
     mavenCentral()
