@@ -26,12 +26,20 @@ public class Starboard extends ListenerAdapter {
         TextChannel starboardChannel = starboardChannels.get(0);
 
         Message message = event.retrieveMessage().complete();
+        String imageUrl = message.getAttachments()
+                .stream()
+                .filter(Message.Attachment::isImage)
+                .findFirst()
+                .map(Message.Attachment::getProxyUrl)
+                .orElse(null);
+
 
         MessageEmbed embed = new EmbedBuilder()
                 .setAuthor(message.getAuthor().getAsTag(), null, message.getAuthor().getEffectiveAvatarUrl())
                 .setDescription(message.getContentRaw())
                 .setColor(0xFFAE30)
                 .setTimestamp(message.getTimeCreated())
+                .setImage(imageUrl)
                 .build();
 
         Message response = new MessageBuilder()
