@@ -35,7 +35,7 @@ public class Starboard extends ListenerAdapter {
                 .build();
         
         if(message.Attachment.isImage()){
-            embed.setImageInfo(new ImagaInfo(message.Attachment.getUrl()));
+            embed.setImageInfo(new ImageInfo(message.Attachment.getUrl()));
         }else{
             embed.setThumbnail(new Thumbnail(message.Attachment.getUrl()));
         }
