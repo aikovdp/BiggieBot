@@ -26,16 +26,19 @@ public class Starboard extends ListenerAdapter {
         TextChannel starboardChannel = starboardChannels.get(0);
 
         Message message = event.retrieveMessage().complete();
-        
-        ImageInfo image = new ImagaInfo(message.Attachment.getUrl());
 
         MessageEmbed embed = new EmbedBuilder()
                 .setAuthor(message.getAuthor().getAsTag(), null, message.getAuthor().getEffectiveAvatarUrl())
                 .setDescription(message.getContentRaw())
                 .setColor(0xFFAE30)
-                .setImageInfo(image)
                 .setTimestamp(message.getTimeCreated())
                 .build();
+        
+        if(message.Attachment.isImage()){
+            embed.setImageInfo(new ImagaInfo(message.Attachment.getUrl()));
+        }else{
+            embed.setThumbnail(new Thumbnail(message.Attachment.getUrl()));
+        }
 
         Message response = new MessageBuilder()
                 .setContent("\u2B50 " + event.getTextChannel().getAsMention())
