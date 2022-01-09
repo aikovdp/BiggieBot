@@ -26,11 +26,14 @@ public class Starboard extends ListenerAdapter {
         TextChannel starboardChannel = starboardChannels.get(0);
 
         Message message = event.retrieveMessage().complete();
+        
+        ImageInfo image = new ImagaInfo(message.Attachment.getUrl());
 
         MessageEmbed embed = new EmbedBuilder()
                 .setAuthor(message.getAuthor().getAsTag(), null, message.getAuthor().getEffectiveAvatarUrl())
                 .setDescription(message.getContentRaw())
                 .setColor(0xFFAE30)
+                .setImageInfo(image)
                 .setTimestamp(message.getTimeCreated())
                 .build();
 
