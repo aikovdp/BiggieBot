@@ -8,7 +8,7 @@ import net.dv8tion.jda.api.entities.TextChannel;
 import net.dv8tion.jda.api.events.message.react.MessageReactionAddEvent;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
 import net.dv8tion.jda.api.interactions.components.ActionRow;
-import net.dv8tion.jda.api.interactions.components.Button;
+import net.dv8tion.jda.api.interactions.components.buttons.Button;
 
 import java.util.List;
 
@@ -47,7 +47,6 @@ public class Starboard extends ListenerAdapter {
                 .setActionRows(ActionRow.of(Button.link(message.getJumpUrl(), "Jump to message")))
                 .setEmbeds(embed)
                 .build();
-
         starboardChannel.sendMessage(response).queue();
     }
 }
