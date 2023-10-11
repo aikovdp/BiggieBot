@@ -14,7 +14,7 @@ import javax.security.auth.login.LoginException;
 public class BiggieBot extends ListenerAdapter {
 
     public static void main(String[] args) throws LoginException {
-        JDA jda = JDABuilder.createDefault(args[0])
+        JDA jda = JDABuilder.createLight(args[0])
                 .addEventListeners(new BiggieBot(), new Starboard())
                 .build();
 
