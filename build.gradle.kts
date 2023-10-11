@@ -1,5 +1,6 @@
 plugins {
     application
+    id("com.github.johnrengelman.shadow") version "8.1.1"
 }
 
 application.mainClass = "me.aikovdp.biggiebot.BiggieBot"
@@ -20,4 +21,8 @@ repositories {
 dependencies {
     implementation("net.dv8tion:JDA:5.0.0-alpha.15")
     implementation("ch.qos.logback:logback-classic:1.4.7")
+}
+
+tasks.assemble {
+    dependsOn(tasks.shadowJar)
 }
