@@ -16,11 +16,13 @@ java {
 
 repositories {
     mavenCentral()
-    maven (url = "https://m2.dv8tion.net/releases")
+    maven(url = "https://m2.dv8tion.net/releases")
 }
 
 dependencies {
-    implementation("net.dv8tion:JDA:5.0.0-alpha.15")
+    implementation("net.dv8tion:JDA:5.0.0-alpha.15") {
+        exclude(module = "opus-java")
+    }
     implementation("ch.qos.logback:logback-classic:1.4.7")
 }
 
