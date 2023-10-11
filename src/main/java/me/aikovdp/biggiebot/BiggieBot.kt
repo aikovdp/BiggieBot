@@ -1,33 +1,27 @@
-package me.aikovdp.biggiebot;
+package me.aikovdp.biggiebot
 
-import me.aikovdp.biggiebot.modules.Starboard;
-import net.dv8tion.jda.api.JDA;
-import net.dv8tion.jda.api.JDABuilder;
-import net.dv8tion.jda.api.events.interaction.command.SlashCommandInteractionEvent;
-import net.dv8tion.jda.api.hooks.ListenerAdapter;
-import net.dv8tion.jda.api.interactions.commands.build.Commands;
-import org.jetbrains.annotations.NotNull;
+import me.aikovdp.biggiebot.modules.Starboard
+import net.dv8tion.jda.api.JDABuilder
+import net.dv8tion.jda.api.events.interaction.command.SlashCommandInteractionEvent
+import net.dv8tion.jda.api.hooks.ListenerAdapter
+import net.dv8tion.jda.api.interactions.commands.build.Commands
 
-import javax.security.auth.login.LoginException;
+fun main() {
+    BiggieBot()
+}
 
-
-public class BiggieBot extends ListenerAdapter {
-
-    public static void main(String[] args) throws LoginException {
-        JDA jda = JDABuilder.createLight(System.getenv("DISCORD_BOT_TOKEN"))
-                .addEventListeners(new BiggieBot(), new Starboard())
-                .build();
-
+class BiggieBot : ListenerAdapter() {
+    init {
+        val jda = JDABuilder.createLight(System.getenv("DISCORD_BOT_TOKEN"))
+                .addEventListeners(this, Starboard())
+                .build()
         jda.updateCommands()
                 .addCommands(Commands.slash("ping", "Ping the bot"))
-                .queue();
+                .queue()
     }
-
-
-    @Override
-    public void onSlashCommandInteraction(@NotNull SlashCommandInteractionEvent event) {
-        if (event.getName().equals("ping")) {
-            event.reply("pong").queue();
+    override fun onSlashCommandInteraction(event: SlashCommandInteractionEvent) {
+        if (event.name == "ping") {
+            event.reply("pong").queue()
         }
     }
 }

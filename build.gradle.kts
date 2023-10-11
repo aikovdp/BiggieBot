@@ -1,9 +1,10 @@
 plugins {
     application
     id("com.github.johnrengelman.shadow") version "8.1.1"
+    kotlin("jvm") version "1.9.10"
 }
 
-application.mainClass = "me.aikovdp.biggiebot.BiggieBot"
+application.mainClass = "me.aikovdp.biggiebot.BiggieBotKt"
 version = "1.0-SNAPSHOT"
 
 java {
