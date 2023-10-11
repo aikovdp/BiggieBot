@@ -18,6 +18,6 @@ repositories {
 }
 
 dependencies {
-    implementation("net.dv8tion:JDA:5.0.0-alpha.11")
-    implementation("ch.qos.logback:logback-classic:1.2.11")
+    implementation("net.dv8tion:JDA:5.0.0-alpha.15")
+    implementation("ch.qos.logback:logback-classic:1.4.7")
 }

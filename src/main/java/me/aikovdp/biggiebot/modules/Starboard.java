@@ -16,7 +16,7 @@ public class Starboard extends ListenerAdapter {
     @Override
     public void onMessageReactionAdd(MessageReactionAddEvent event) {
         if (!event.isFromGuild()
-                || !event.getReactionEmote().getAsReactionCode().equals("\u2B50")
+                || !event.getEmoji().getAsReactionCode().equals("⭐")
                 || event.getReaction().retrieveUsers().complete().size() != 1)
             return;
 
@@ -43,7 +43,7 @@ public class Starboard extends ListenerAdapter {
                 .build();
 
         Message response = new MessageBuilder()
-                .setContent("\u2B50 " + event.getTextChannel().getAsMention())
+                .setContent("⭐ " + event.getChannel().getAsMention())
                 .setActionRows(ActionRow.of(Button.link(message.getJumpUrl(), "Jump to message")))
                 .setEmbeds(embed)
                 .build();
